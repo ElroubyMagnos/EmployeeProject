@@ -1,0 +1,24 @@
+<aside #asidelist (mouseleave)="asidelist.style.left = '-138px'" (mouseenter)="asidelist.style.left = '0'" class="absolute left-[-138px] top-30 transition-all duration-1000">
+    <ul class="bg-bluemaincolor mt-1 d-flex flex-col gap-5 fs-3 p-2">
+        <li class="d-flex gap-2 align-items-center text-light">
+            <i class="fa-solid fa-circle-info fs-5 w-[20px]"></i>
+            <button routerLinkActive="Active" [disabled]="!Details" [class]="(Details ? (Currentroute == '/inside/details' ? '' : 'text-light') : 'text-[#888282]')" [routerLink]="['/inside/details']">Details</button>
+        </li>
+        <li class="d-flex gap-2 align-items-center text-light">
+            <i class="fa-solid fa-wand-magic-sparkles fs-5 w-[20px]"></i>
+            <button routerLinkActive="Active" [disabled]="!Program" [class]="Program ? (Currentroute == '/inside/program' ? '' : 'text-light') : 'text-[#888282]'" [routerLink]="['/inside/program']">Program</button>
+        </li>
+        <li class="d-flex gap-2 align-items-center text-light">
+            <i class="fa-solid fa-dna fs-5 w-[20px]"></i>
+            <button routerLinkActive="Active" [disabled]="!Evaluation && linker.EvaluationID() != 0 && linker.LinkerPastDetails() != null" [class]="Evaluation ? (Currentroute == '/inside/evaluation' ? '' : 'text-light') : 'text-[#888282]'" [routerLink]="['/inside/evaluation', linker.EvaluationID()]">Evaluation</button>
+        </li>
+        <li class="d-flex gap-2 align-items-center text-light">
+            <i class="fa-solid fa-clipboard-list fs-5 w-[20px]"></i>
+            <button routerLinkActive="Active" [disabled]="!Summary" [class]="Summary ? (Currentroute == '/inside/summary' ? '' : 'text-light') : 'text-[#888282]'" [routerLink]="['/inside/summary']">Summary</button>
+        </li>
+        <li class="d-flex gap-2 align-items-center text-light">
+            <i class="fa-solid fa-square-root-variable fs-5 w-[20px]"></i>
+            <button routerLinkActive="Active" [disabled]="!Decision" [class]="Decision ? (Currentroute == '/inside/decision' ? '' : 'text-light') : 'text-[#888282]'" [routerLink]="['/inside/decision']">Decision</button>
+        </li>
+    </ul>
+</aside>

@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:4200",
+"RedirectUrl": "",
+"LaunchCommand": "yarn start",
+"WorkingDirectory": "D:\\Windows Helper\\Abdullah\\Desktop\\EmployeeProj\\EmployeeProj.Server\\..\\employeeproj.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

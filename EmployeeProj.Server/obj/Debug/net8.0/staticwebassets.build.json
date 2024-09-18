@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "AZ9eXszua61QrufoTsGKbMrPRKHztGlP6tS/yJObR8U=",
+  "Source": "EmployeeProj.Server",
+  "BasePath": "_content/EmployeeProj.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Windows Helper\\Abdullah\\Desktop\\EmployeeProj\\employeeproj.client\\employeeproj.client.esproj",
+      "Version": 2,
+      "Source": "employeeproj.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

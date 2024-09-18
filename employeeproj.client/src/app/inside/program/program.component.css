@@ -1,0 +1,8 @@
+table, th, td
+{
+    margin: 0 auto;
+    border: 2px solid gray;
+    text-align: center; 
+    padding: 10px;
+    font-size: 10px;
+}

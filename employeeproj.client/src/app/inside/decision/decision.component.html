@@ -1,0 +1,74 @@
+<app-navigator [Summary]="true" [Decision]="true"></app-navigator>
+
+<article>
+    <section class="bg-bluemaincolor d-flex gap-3 p-3 text-light flex-col w-fit m-auto mt-3 mb-3">
+        <article class="d-flex justify-center align-items-center gap-5">
+            <section class="d-flex gap-3 flex-col">
+                <div class="d-flex gap-2">
+                    <p>Item 1</p>
+                    <input [ngModel]="EvaluationIn.item1" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 2</p>
+                    <input [ngModel]="EvaluationIn.item2" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 3</p>
+                    <input [ngModel]="EvaluationIn.item3" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 4</p>
+                    <input [ngModel]="EvaluationIn.item4" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 5</p>
+                    <input [ngModel]="EvaluationIn.item5" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 6</p>
+                    <input [ngModel]="EvaluationIn.item6" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 7</p>
+                    <input [ngModel]="EvaluationIn.item7" class="w-[100px] border-2 border-bluemaincolor p-1" type="number">
+                </div>
+            </section>
+            
+            <section class="border-2 border-bluemaincolor d-flex flex-col gap-3 p-3 w-[200px]">
+                <div class="d-flex justify-between bg-success text-light p-2 rounded-sm">
+                    <p>{{EvaluationIn.NumberOfAccepted}} out of {{EvaluationIn.CountOf}} Accepted</p>
+                    <p>{{(EvaluationIn.NumberOfAccepted / EvaluationIn.CountOf) * 100}}%</p>
+                </div>
+                <div class="d-flex justify-between bg-warning text-light p-2 rounded-sm">
+                    <p>{{EvaluationIn.NumberOfEnhancement}} out of {{EvaluationIn.CountOf}} Need Enhancement</p>
+                    <p>{{(EvaluationIn.NumberOfEnhancement / EvaluationIn.CountOf) * 100}}%</p>
+                </div>
+                <div class="d-flex justify-between bg-danger text-light p-2 rounded-sm">
+                    <p>{{EvaluationIn.NumberOfRejected}} out of {{EvaluationIn.CountOf}} Rejected</p>
+                    <p>{{(EvaluationIn.NumberOfRejected / EvaluationIn.CountOf) * 100}}%</p>
+                </div>
+                <hr/>
+                <div class="d-flex align-items-center gap-2 bg-success text-light p-2 rounded-sm">
+                    <input class="scale-150" type="radio" name="IsAccepted">
+                    <label>Accepted</label>
+                </div>
+                <div class="d-flex align-items-center gap-2 bg-warning text-light p-2 rounded-sm">
+                    <input class="scale-150" type="radio" name="IsAccepted">
+                    <label>Need Enhancement</label>
+                </div>
+                <div class="d-flex align-items-center gap-2 bg-danger text-light p-2 rounded-sm">
+                    <input class="scale-150" type="radio" name="IsAccepted">
+                    <label>Rejected</label>
+                </div>
+            </section>
+        </article>
+        <div class="d-flex gap-2">
+            <label>Remarks:</label>
+            <input [ngModel]="EvaluationIn.remarks" class="w-[300px] border-2 border-bluemaincolor p-1" type="text">
+        </div>
+        <section class="d-flex justify-content-end align-items-end gap-2 text-light">
+            <button [routerLink]="['/signedinhome']" type="button" class="bg-[#FB4D00] px-3 py-1">Cancel</button>
+            <button (click)="SaveDecision()" type="submit" class="transition-all duration-700 hover:bg-[#a3aee9] bg-[#7F87B4] px-3 py-1">Submit</button>
+        </section>
+    </section>
+</article>

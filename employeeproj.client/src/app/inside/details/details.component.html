@@ -1,0 +1,52 @@
+<app-navigator [Evaluation]="EnableEvaluation" [Details]="true" [Program]="true"></app-navigator>
+
+<form #f="ngForm" (ngSubmit)="SaveToDB(f, file, attachfile, img)" class="w-fit p-3 d-flex flex-col m-auto mt-5 gap-3 border-2 bg-bluemaincolor text-light border-bluemaincolor">
+    <section class="d-flex gap-3">
+        <section class="d-flex flex-col gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <input [ngModel]="TempDetails.title" minlength="3" placeholder="Title" name="Title" id="Title" class="form-control" type="text">
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <input [ngModel]="TempDetails.category" minlength="2" placeholder="Category" name="Category" id="Category" class="form-control" type="text">
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <textarea [ngModel]="TempDetails.description" minlength="10" class="form-control resize-none h-[130px]" placeholder="Description" name="Description" id="Description"></textarea>
+            </div>
+        </section>
+        <section class="d-flex flex-col gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <input (change)="ChangePic(img, file);" #file type="file" hidden>
+                <img [src]="'data:image/png;base64,' + TempDetails.coverImage" #img width="150" height="150" class="border-2 border-bluemaincolor" src="selectimage.jpg" alt="Select Image">
+            </div>
+            <div class="d-flex align-items-center gap-1 mx-auto">
+                <button type="button" (click)="file.click();" id="addimage" class="transition-all duration-700 hover:bg-[#a3aee9] bg-[#7F87B4] text-light p-1 rounded-lg px-4">Select</button>
+            </div>
+        </section>
+    </section>
+    
+    <section class="d-flex justify-content-between w-[350px] align-items-center">
+        <label class="font-bold fs-5">Doc: </label>
+
+        <section class="d-flex justify-between gap-3">
+            <div class="d-flex gap-2">
+                <input [checked]="TempDetails.attachedDoc" #thisinput (click)="attach.disabled = false;thisinput.checked = true;" class="scale-150" type="radio" name="Required" id="req">
+                <label for="req">Required</label>
+            </div>
+            <div class="d-flex gap-2">
+                <input [checked]="TempDetails.attachedDoc === undefined || TempDetails.attachedDoc.length === 0" (click)="attach.disabled = true;attachfile.files = null;" class="scale-150" type="radio" name="Required" id="notreq">
+                <label for="notreq">Not Required</label>
+            </div>
+
+        </section>
+        <div>
+            <input (change)="AttachFile(attachfile)" #attachfile type="file" hidden>
+            <button type="button" (click)="attachfile.click();" [disabled]="!AttachEnabled" #attach [class]="(attach.disabled ? 'bg-[#818181]' : 'bg-[#7F87B4] hover:bg-[#a3aee9]') + ' transition-all duration-700 text-light rounded-lg px-3 py-1'">Attach</button>
+        </div>
+    </section>
+    <p class="text-end">{{TempDetails.attachedName}}</p>
+
+    <section class="d-flex justify-content-end align-items-end gap-2 text-light">
+        <button [routerLink]="['/signedinhome']" type="button" class="bg-[#FB4D00] px-3 py-1">Cancel</button>
+        <button type="submit" class="transition-all duration-700 hover:bg-[#a3aee9] bg-[#7F87B4] px-3 py-1">Next</button>
+    </section>
+</form>

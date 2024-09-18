@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.row
+{
+    margin: 0;
+}
+
+input, select
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,61 @@
+<app-navigator [Details]="true" [Program]="true" [Evaluation]="true"></app-navigator>
+
+<article>
+    <form ngNativeValidate #f="ngForm" (ngSubmit)="Submit(f)" class="w-[400px] sm:w-[400px] md:w-[600px] d-flex gap-3 p-5 flex-col border-2 bg-bluemaincolor text-light border-bluemaincolor m-auto mt-3 mb-3">
+        <article class="d-flex justify-center align-items-center gap-5">
+            <section class="d-flex gap-3 flex-col">
+                <div class="d-flex gap-2">
+                    <p>Item 1</p>
+                    <input required #input1 (keyup)="FromOneToTen(input1)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item1" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 2</p>
+                    <input required #input2 (keyup)="FromOneToTen(input2)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item2" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 3</p>
+                    <input required #input3 (keyup)="FromOneToTen(input3)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item3" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 4</p>
+                    <input required #input4 (keyup)="FromOneToTen(input4)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item4" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 5</p>
+                    <input required #input5 (keyup)="FromOneToTen(input5)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item5" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 6</p>
+                    <input required #input6 (keyup)="FromOneToTen(input6)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item6" ngModel>
+                </div>
+                <div class="d-flex gap-2">
+                    <p>Item 7</p>
+                    <input required #input7 (keyup)="FromOneToTen(input7)" class="w-[100px] border-2 border-bluemaincolor p-1" type="number" name="Item7" ngModel>
+                </div>
+            </section>
+    
+            <section class="border-2 border-bluemaincolor d-flex flex-col gap-3 p-3">
+                <div class="d-flex align-items-center gap-2 bg-success text-light p-2 rounded-sm">
+                    <input ngModel required value="0" class="scale-150" type="radio" name="IsAccepted">
+                    <label>Accepted</label>
+                </div>
+                <div class="d-flex align-items-center gap-2 bg-warning text-light p-2 rounded-sm">
+                    <input ngModel required value="1" class="scale-150" type="radio" name="IsAccepted" >
+                    <label>Need Enhancement</label>
+                </div>
+                <div class="d-flex align-items-center gap-2 bg-danger text-light p-2 rounded-sm">
+                    <input ngModel required value="2" class="scale-150" type="radio" name="IsAccepted">
+                    <label>Rejected</label>
+                </div>
+            </section>
+        </article>
+        <div class="d-flex gap-2">
+            <label>Remarks:</label>
+            <input required class="w-[378px] border-2 border-bluemaincolor p-1" type="text" name="Remarks" ngModel>
+        </div>
+        <section class="d-flex justify-content-end align-items-end gap-2 text-light">
+            <button [routerLink]="['/signedinhome']" type="button" class="bg-[#FB4D00] px-3 py-1">Cancel</button>
+            <button type="submit" class="transition-all duration-700 hover:bg-[#a3aee9] bg-[#7F87B4] px-3 py-1">Submit</button>
+        </section>
+    </form>
+</article>

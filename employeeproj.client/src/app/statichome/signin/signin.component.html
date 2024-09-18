@@ -1,0 +1,22 @@
+<article>
+    <section>
+        <h1 class="mb-5 mt-3 text-center">Good to see you again</h1>
+
+        <form #f="ngForm" ngNativeValidate (ngSubmit)="Submit(f)" class="bg-light shadow-lg border-2 border-bluemaincolor w-[355px] m-auto p-3 d-flex flex-col gap-2">
+            <div class="d-flex align-content-center justify-center">
+                <i class="fa-solid fa-user fs-2 bg-bluemaincolor text-light p-3"></i>
+                <input minlength="3" required class="form-control p-1 rounded-none text-center" placeholder="Username" type="text" name="Username" ngModel>
+            </div>
+            <div class="d-flex align-content-center justify-center">
+                <i class="fa-solid fa-lock fs-2 bg-bluemaincolor text-light p-3"></i>
+                <input minlength="3" required class="form-control p-1 rounded-none text-center" placeholder="Password" type="Password" name="Password" ngModel>
+            </div>
+
+            <button *ngIf="!buffering" type="submit" class="bg-bluemaincolor text-light p-3">Sign In</button>
+
+            <app-buffering [Width]="50" [Height]="50" *ngIf="buffering"></app-buffering>
+
+            <a class="text-center no-underline hover:underline" href="#">Forgot Password</a>
+        </form>
+    </section>
+</article>
