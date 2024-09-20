@@ -104,7 +104,8 @@ namespace EmployeeProj.Server.Controllers
                     Description = "A Supervisor Corrected a Program, We need your last decision",
                     Title = "Decision",
                     ToID = manager.ID,
-                    DetailsID = Request.SourceDetails
+                    DetailsID = Request.SourceDetails,
+                    WriterID = Request.WriterID
                 });
 
             }
@@ -178,7 +179,9 @@ namespace EmployeeProj.Server.Controllers
                 Active = false,
                 Description = Request.Description,
                 Title = Request.Title,
-                ToID = Request.ToID
+                ToID = Request.ToID,
+                WriterID = Request.WriterID,
+                DetailsID = Request.DetailsID
             });
 
             await employee.SaveChangesAsync();
@@ -196,9 +199,17 @@ namespace EmployeeProj.Server.Controllers
             .FirstOrDefaultAsync(x => x.Username == Username && x.Password == Password
             && x.Type == TypeOfEntity.Supervisor);
 
+            if (Selected == null)
+            {
+                return null;
+            }
+
             var AllNotify = await employee.SupervisorRequests
             .Where(x => x.ToID == Selected.ID && x.Active)
             .ToArrayAsync();
+
+            if (AllNotify == null)
+                return null;
 
             return AllNotify;
         }
@@ -256,7 +267,8 @@ namespace EmployeeProj.Server.Controllers
                     EndDate = program.EndDate,
                     Percentage = program.Percentage,
                     Step = program.Step,
-                    State = program.State == "Open" ? StateOfProgram.Open : StateOfProgram.Close
+                    State = program.State == "Open" ? StateOfProgram.Open : StateOfProgram.Close,
+                    
                 });
                 
                 await employee.SaveChangesAsync();

@@ -16,5 +16,7 @@ namespace EmployeeProj.Server.Models
         public ICollection<ProgramEntity> Programs {get;set;}
         public ICollection<Evaluation> Evaluations {get;set;}
         public ICollection<SupervisorRequest> SupervisorNotify {get;set;}
+        public ICollection<ManagerRequest> ManagerNotify {get;set;}
+        public ICollection<Decision> Decisions {get;set;}
     }
 }

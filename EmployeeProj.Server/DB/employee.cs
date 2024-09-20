@@ -59,6 +59,12 @@ namespace EmployeeProj.Server.DB
             .HasMany(x => x.EvaluationsGroup)
             .WithOne(x => x.OneDetails)
             .HasForeignKey(x => x.SourceDetails);
+
+            mb.Entity<ManagerRequest>()
+            .HasOne(x => x.Writer)
+            .WithMany(x => x.ManagerNotify)
+            .HasForeignKey(x => x.WriterID);
+            
         }
 
         public DbSet<Details> Details {get;set;}

@@ -21,5 +21,7 @@ namespace EmployeeProj.Server.Models
         public double NumberOfEnhancement {get;set;}
         public double NumberOfRejected {get;set;}
         public double CountOf {get;set;}
+        public int WriterID {get;set;}
+        public EmployeeEntity Writer {get;set;}
     }
 }

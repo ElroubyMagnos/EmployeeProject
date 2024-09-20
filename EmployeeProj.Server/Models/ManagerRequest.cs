@@ -13,5 +13,7 @@ namespace EmployeeProj.Server.Models
         public int ToID {get;set;}
         public bool Active {get;set;}
         public int DetailsID {get;set;}
+        public int WriterID {get;set;}
+        public EmployeeEntity Writer {get;set;}
     }
 }

@@ -1,4 +1,4 @@
-<button [attr.data-count]="SupervisorNotifications.length + ManagerNotifications.length" data-bs-toggle="modal" data-bs-target="#exampleModal" class="bg-light rounded-full p-3 before:w-[25px] before:rounded-full before:h-[25px] before:content-[attr(data-count)] before:absolute before:top-0 before:right-0 before:bg-red-500">
+<button [attr.data-count]="Counter" data-bs-toggle="modal" data-bs-target="#exampleModal" class="bg-light rounded-full p-3 before:w-[25px] before:rounded-full before:h-[25px] before:content-[attr(data-count)] before:absolute before:top-0 before:right-0 before:bg-red-500">
     <img width="30" height="30" src="bell.png" alt="">
 </button>
 
@@ -16,7 +16,7 @@
             <div class="border-2 border-bluemaincolor p-3">
               <p>{{managernotf.title}}</p>
               <textarea class="resize-none w-[90%] h-[100px]">{{managernotf.description}}</textarea>
-              <button (click)="GotoNotifyManager(managernotf)" class="btn btn-primary">Check</button>
+              <button type="button" (click)="GotoNotifyManager(managernotf)" class="btn btn-primary">Check</button>
             </div>
           }
 

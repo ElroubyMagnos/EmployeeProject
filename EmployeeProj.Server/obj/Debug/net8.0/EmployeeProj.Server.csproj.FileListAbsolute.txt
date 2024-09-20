@@ -137,3 +137,4 @@ D:\Windows Helper\Abdullah\Desktop\EmployeeProj\EmployeeProj.Server\obj\Debug\ne
 D:\Windows Helper\Abdullah\Desktop\EmployeeProj\EmployeeProj.Server\obj\Debug\net8.0\EmployeeProj.Server.pdb
 D:\Windows Helper\Abdullah\Desktop\EmployeeProj\EmployeeProj.Server\obj\Debug\net8.0\EmployeeProj.Server.genruntimeconfig.cache
 D:\Windows Helper\Abdullah\Desktop\EmployeeProj\EmployeeProj.Server\obj\Debug\net8.0\ref\EmployeeProj.Server.dll
+D:\Windows Helper\Abdullah\Desktop\EmployeeProj\EmployeeProj.Server\obj\Debug\net8.0\EmployeeProj.Server.sourcelink.json

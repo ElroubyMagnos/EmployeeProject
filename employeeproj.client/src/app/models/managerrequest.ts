@@ -4,5 +4,6 @@ export interface ManagerRequest {
     description: string;
     toID: number;
     active: boolean;
-    evaluationID: number;
+    detailsID: number;
+    writerID: number;
 }

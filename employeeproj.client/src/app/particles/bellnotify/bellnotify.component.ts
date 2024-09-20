@@ -14,7 +14,7 @@ import { ManagerRequest } from '../../models/managerrequest';
 export class BellnotifyComponent {
   SupervisorNotifications: SupervisorRequest[] = [];
   ManagerNotifications: ManagerRequest[] = [];
-
+  Counter: number = 0;
   constructor(private http: HttpClient, private router: Router, private toast: ToastrService)
   {
     this.LoadNotifications();
@@ -22,17 +22,23 @@ export class BellnotifyComponent {
 
   LoadNotifications()
   {
+    
     this.http.get<SupervisorRequest[]>(`/Base/GetSupervisorNotify/${localStorage.getItem('Username')}/${localStorage.getItem('Password')}`)
     .subscribe(
       {
         next: (x) => 
         {
+          this.Counter += x.length;
           this.SupervisorNotifications = x;
 
           if (this.SupervisorNotifications.length > 0)
           {
             new Audio('/notify.mp3').play();
           }
+        },
+        error: (err: Error) =>
+        {
+          alert(err.message);
         }
       }
     );
@@ -42,14 +48,18 @@ export class BellnotifyComponent {
       {
         next: (x) => 
         {
+          this.Counter += x.length;
           this.ManagerNotifications = x;
-
           if (this.ManagerNotifications.length > 0)
           {
             new Audio('/notify.mp3').play();
           }
+        },
+        error: (err: Error) =>
+        {
+          alert(err.message);
         }
-      }
+    }
     );
   }
 
@@ -75,7 +85,7 @@ export class BellnotifyComponent {
 
     if (Waiting)
     {
-      this.router.navigate(['inside', 'summary', notify.id]);
+      this.router.navigate(['inside', 'summary', notify.detailsID]);
     }
     else
     {

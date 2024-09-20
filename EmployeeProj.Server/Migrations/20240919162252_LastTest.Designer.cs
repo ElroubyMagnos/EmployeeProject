@@ -4,6 +4,7 @@ using EmployeeProj.Server.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeProj.Server.Migrations
 {
     [DbContext(typeof(employee))]
-    partial class employeeModelSnapshot : ModelSnapshot
+    [Migration("20240919162252_LastTest")]
+    partial class LastTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +77,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("WriterID");
 
-                    b.ToTable("Decisions", (string)null);
+                    b.ToTable("Decisions");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.Details", b =>
@@ -119,7 +122,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("WriterID");
 
-                    b.ToTable("Details", (string)null);
+                    b.ToTable("Details");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.EmployeeEntity", b =>
@@ -143,7 +146,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.Evaluation", b =>
@@ -200,7 +203,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("SourceDetails");
 
-                    b.ToTable("Evaluations", (string)null);
+                    b.ToTable("Evaluations");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.ManagerRequest", b =>
@@ -235,7 +238,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("WriterID");
 
-                    b.ToTable("ManagerRequests", (string)null);
+                    b.ToTable("ManagerRequests");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.ProgramEntity", b =>
@@ -278,7 +281,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("EmployeeEntityID");
 
-                    b.ToTable("Programs", (string)null);
+                    b.ToTable("Programs");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.SupervisorRequest", b =>
@@ -315,7 +318,7 @@ namespace EmployeeProj.Server.Migrations
 
                     b.HasIndex("EmployeeEntityID");
 
-                    b.ToTable("SupervisorRequests", (string)null);
+                    b.ToTable("SupervisorRequests");
                 });
 
             modelBuilder.Entity("EmployeeProj.Server.Models.Decision", b =>
