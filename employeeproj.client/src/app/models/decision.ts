@@ -1,4 +1,4 @@
-export interface Decision {
+export interface DecisionRequest {
     id: number;
     item1: number;
     item2: number;
@@ -8,8 +8,9 @@ export interface Decision {
     item6: number;
     item7: number;
     remarks: string;
-    NumberOfAccepted: number;
-    NumberOfEnhancement: number;
-    NumberOfRejected: number;
-    CountOf: number;
+    numberOfAccepted: number;
+    numberOfEnhancement: number;
+    numberOfRejected: number;
+    countOf: number;
+    writerID: number;
 }

@@ -8,9 +8,7 @@ export const signinGuard: CanActivateFn = async (route, state) => {
 
   await linker.ngOnInit();
 
-  var Check = !linker.CheckAccountEmployeeValue();
-
-  if (Check)
+  if (!linker.CheckAccountEmployeeValue)
   {
     return true;
   }

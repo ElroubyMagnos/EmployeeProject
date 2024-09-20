@@ -1,17 +1,17 @@
 <header>
     <nav class="d-flex justify-between bg-[#505674] p-2 align-items-center">
         <h1 [routerLink]="['/home']" class="text-light cursor-pointer">Elrouby</h1>
-        <div *ngIf="linker.CheckAccountEmployeeValue()" class="d-flex gap-3 relative">
+        <div *ngIf="linker.CheckAccountEmployeeValue" class="d-flex gap-3 relative">
 
             <div class="dropdown">
                 <button class="bg-light rounded-full p-3" data-bs-toggle="dropdown" aria-expanded="false">
                     <img width="30" height="30" src="personal.png" alt="">
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item bg-success">{{Employee.username}}</a></li>
+                  <li><a class="dropdown-item bg-success">{{linker.Employee()!.username}}</a></li>
                   <li>
                     <a class="dropdown-item bg-warning">
-                        @switch (Employee.type) 
+                        @switch (linker.Employee()!.type) 
                         {
                             @case (0) 
                             {

@@ -1,4 +1,4 @@
-<button [attr.data-count]="Counter" data-bs-toggle="modal" data-bs-target="#exampleModal" class="bg-light rounded-full p-3 before:w-[25px] before:rounded-full before:h-[25px] before:content-[attr(data-count)] before:absolute before:top-0 before:right-0 before:bg-red-500">
+<button #btnofmenu [attr.data-count]="linker.Counter" data-bs-toggle="modal" data-bs-target="#exampleModal" class="bg-light rounded-full p-3 before:w-[25px] before:rounded-full before:h-[25px] before:content-[attr(data-count)] before:absolute before:top-0 before:right-0 before:bg-red-500">
     <img width="30" height="30" src="bell.png" alt="">
 </button>
 
@@ -11,20 +11,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          @for (managernotf of ManagerNotifications; track $index) 
+          @for (managernotf of linker.ManagerNotifications; track $index) 
           {
             <div class="border-2 border-bluemaincolor p-3">
               <p>{{managernotf.title}}</p>
               <textarea class="resize-none w-[90%] h-[100px]">{{managernotf.description}}</textarea>
-              <button type="button" (click)="GotoNotifyManager(managernotf)" class="btn btn-primary">Check</button>
+              <button type="button" (click)="linker.GotoNotifyManager(managernotf, btnofmenu)" class="btn btn-primary">Check</button>
             </div>
           }
 
 
-          <div class="border-2 border-bluemaincolor p-3" *ngFor="let supernotf of SupervisorNotifications">
+          <div class="border-2 border-bluemaincolor p-3" *ngFor="let supernotf of linker.SupervisorNotifications">
             <p>{{supernotf.title}}</p>
             <textarea class="resize-none w-[90%] h-[100px]">{{supernotf.description}}</textarea>
-            <button (click)="GotoNotify(supernotf)" class="btn btn-primary">Check</button>
+            <button (click)="linker.GotoNotifySupervisor(supernotf, btnofmenu)" class="btn btn-primary">Check</button>
           </div>
         </div>
         <div class="modal-footer">

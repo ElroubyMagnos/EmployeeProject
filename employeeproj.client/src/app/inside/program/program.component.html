@@ -21,7 +21,7 @@
             </div>
             <div class="d-flex align-items-center gap-2">
                 <p class="w-[80px]">Percentage:</p>
-                <input minlength="1" required #percentage (keyup)="PercentOnly(percentage)" name="Percentage" id="Percentage" class="w-[150px] border-2 border-bluemaincolor rounded-2 p-2" type="number" [ngModel]="SelectedEntity.percentage">
+                <input minlength="1" required #percentage (click)="PercentOnly(percentage);" (keyup)="PercentOnly(percentage)" name="Percentage" id="Percentage" class="w-[150px] border-2 border-bluemaincolor rounded-2 p-2" type="number" [ngModel]="SelectedEntity.percentage">
             </div>
             <div class="d-flex align-items-center gap-2">
                 <p class="w-[80px]">State:</p>

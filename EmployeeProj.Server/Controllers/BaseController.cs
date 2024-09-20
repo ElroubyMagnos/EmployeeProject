@@ -19,11 +19,27 @@ namespace EmployeeProj.Server.Controllers
         }
 
         [HttpPost("SubmitDecision")]
-        public async Task<bool> SubmitDecision([FromBody] Decision Dec)
+        public async Task<bool> SubmitDecision([FromBody] DecisionRequest Request)
         {
             var employee = new employee();
 
-            await employee.Decisions.AddAsync(Dec);
+            await employee.Decisions.AddAsync(new Decision()
+            {
+                ID = 0,
+                CountOf = Request.CountOf,
+                Item1 = Request.Item1,
+                Item2 = Request.Item2,
+                Item3 = Request.Item3,
+                Item4 = Request.Item4,
+                Item5 = Request.Item5,
+                Item6 = Request.Item6,
+                Item7 = Request.Item7,
+                NumberOfAccepted = Request.NumberOfAccepted,
+                NumberOfEnhancement = Request.NumberOfEnhancement,
+                NumberOfRejected = Request.NumberOfRejected,
+                Remarks = Request.Remarks,
+                WriterID = Request.WriterID
+            });
 
             await employee.SaveChangesAsync();
 

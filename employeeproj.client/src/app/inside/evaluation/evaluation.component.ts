@@ -105,11 +105,25 @@ export class EvaluationComponent implements OnInit {
       this.http.post<boolean>(`/Base/SubmitEvaluation/`, Eva)
       .subscribe(
         {
-          next: (x) =>
+          next: async (x) =>
           {
             if (x)
             {
               this.toast.success('Succeeded');
+
+              for (let i = 0; i < this.linker.SupervisorNotifications.length; i++) 
+              {
+                let Notify = this.linker.SupervisorNotifications[i];
+
+                if (Notify.detailID === this.PastDetails.id)
+                {
+                  await firstValueFrom(this.http.post<boolean>(`/Base/UnactiveSupervisorNotify`, Notify));
+                  this.linker.SupervisorNotifications.splice(this.linker.SupervisorNotifications.indexOf(Notify), 1);
+                  break;
+                }
+              }
+
+              this.linker.LoadNotifications();
 
               this.router.navigate(['/home']);
             }
